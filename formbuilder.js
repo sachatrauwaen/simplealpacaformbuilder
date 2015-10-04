@@ -203,11 +203,7 @@ var formbuilderConfig = {
 			           
 			        }
 		        }
-            },
-            "dependencies": {
-			         
-	             "fieldname":["name"]
-	        }
+            }
         }
     },
     "options": {
