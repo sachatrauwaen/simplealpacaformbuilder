@@ -3,7 +3,7 @@ function getSchema(formdef){
     
     var schema = {
         
-            "title":"Form name",
+            "title":"Generated Alpaca Form",
             "type":"object",
             "properties": {
                 
@@ -74,7 +74,7 @@ function getOptions(formdef){
             });
         }
         if (value.fieldtype == "checkbox"){
-            field.rightLabel = value.fieldname;
+            field.rightLabel = value.title;
         }
         //if (value.vertical){
             field.vertical = value.vertical;
