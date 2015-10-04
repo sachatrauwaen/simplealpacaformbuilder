@@ -126,7 +126,7 @@ function showForm(value){
 var formbuilderConfig = {
     
     "schema": {
-        //"title":"Form builder",
+        "title":"Simple Alpaca Form builder",
         "type":"object",
         "properties": {
            
@@ -137,6 +137,11 @@ var formbuilderConfig = {
 		            "title": "Field",
 		            "type": "object",
 		            "properties": {
+		                 "fieldtype": {
+		                    "title": "Type",
+		                    "type": "string",
+		                    "enum":["text","checkbox", "select", "radio","textarea", "email"]
+		                },
 		                "showname": {
     	                    "type": "boolean"
     	                },
@@ -165,11 +170,7 @@ var formbuilderConfig = {
 		                "required" :{
 		                	 "type": "boolean"
 		                },
-		                "fieldtype": {
-		                    "title": "Type",
-		                    "type": "string",
-		                    "enum":["text","checkbox", "select", "radio","textarea", "email"]
-		                },
+		               
 		                
 		                "vertical" : {
 		                
