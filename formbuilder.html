@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <link type="text/css" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+        <link type="text/css" href="//code.cloudcms.com/alpaca/1.5.14/bootstrap/alpaca.min.css" rel="stylesheet" />
+        <link type="text/css" href="formbuilder.css" rel="stylesheet" />
+        <script type="text/javascript" src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.3/handlebars.js"></script>
+        <script type="text/javascript" src="//code.cloudcms.com/alpaca/1.5.14/bootstrap/alpaca.min.js"></script>
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+        
+        
+        
+        <script type="text/javascript" src="formbuilder.js"></script>
+    </head>
+    <body>
+    	
+    	<div class="row">
+    		<div class="col-md-6">
+ 
+        		<div id="form"></div>
+        	</div>
+        	<div class="col-md-6">
+        			<div id="form2"></div>
+       		</div>
+        </div>
+        <div class="row">
+        	<div class="col-md-12">
+        		<textarea class="form-control" rows="10" id="schema"></textarea>
+        </div>
+        </div>
+        
+        
+        <script type="text/javascript">
+            $(document).ready(function() {
+            	var alpacadata = {};
+            	var cook = $.cookie('alpacadata');
+            	if (typeof(cook) != "undefined" && cook){
+            		alpacadata = JSON.parse(cook);
+            		formbuilderConfig.data = alpacadata;	
+				                        
+				    showForm(alpacadata);
+            	}
+            	
+                $("#form").alpaca(
+                	formbuilderConfig
+                	);
+            });
+        </script>
+    </body>
+</html>
