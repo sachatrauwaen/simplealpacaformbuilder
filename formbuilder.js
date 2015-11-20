@@ -75,9 +75,35 @@ function getSchema(formdef){
        
         schema.properties[value.fieldname] = prop;
     });
-    
     return schema;
 }
+
+ var baseFields = function (index, value) {
+     var field = {
+        "type": value.fieldtype
+    };
+    
+    if (value.fieldoptions){
+        
+        field.optionLabels = $.map( value.fieldoptions, function( v, i){
+            return v.text;
+        });
+    }
+    if (value.fieldtype == "checkbox"){
+        field.rightLabel = value.title;
+    }
+    //if (value.vertical){
+        field.vertical = value.vertical;
+    //}
+    
+    if (value.showplaceholder){
+        field.placeholder = value.placeholder;
+    }
+    if (value.showhelp){
+        field.helper = value.helper;
+    }
+    return field;
+};
 
 function getOptions(formdef){
     
@@ -102,6 +128,7 @@ function getOptions(formdef){
         if (value.fieldtype == "checkbox"){
             field.rightLabel = value.title;
         }
+        
         //if (value.vertical){
             field.vertical = value.vertical;
         //}
@@ -113,14 +140,27 @@ function getOptions(formdef){
             field.helper = value.helper;
         }
         
+        if (value.fieldtype == "array"){
+            field.toolbarSticky = true;
+    	    field.items = {
+    	 		 	    "fieldClass":"listfielddiv",
+					    "fields": {}
+            };
+            
+            $.each(value.listfields,function(listindex, listvalue){
+        
+                var listfield = baseFields(listindex, listvalue);
+                if (!listvalue.showname ||  !listvalue.fieldname){
+                    listvalue.fieldname = 'field_'+listindex;
+                }
+                field.items.fields[listvalue.fieldname] = listfield;
+            });
+            
+        }
+        
         
         options.fields[value.fieldname] = field;
-        
-        
-        
-        
     });
-    
     return options;
 }
 
