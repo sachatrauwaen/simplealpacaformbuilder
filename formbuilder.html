@@ -14,23 +14,28 @@
         <script type="text/javascript" src="formbuilder.js"></script>
     </head>
     <body>
-    	
-    	<div class="row">
-    		<div class="col-md-6">
- 
-        		<div id="form"></div>
-        	</div>
-        	<div class="col-md-6">
-        			<div id="form2"></div>
-       		</div>
+    	<div class="container">
+        	<div class="row">
+        		<div class="col-md-6">
+     
+            		<div id="form"></div>
+            	</div>
+            	<div class="col-md-6">
+            			<div id="form2"></div>
+           		</div>
+            </div>
+            <div class="row">
+            	<div class="col-md-6">
+            	    schema<br/>
+            		<textarea class="form-control" rows="10" id="schema"></textarea>
+                </div>
+                <div class="col-md-6">
+                    options<br/>
+            		<textarea class="form-control" rows="10" id="options"></textarea>
+                </div>
+            </div>
         </div>
-        <div class="row">
-        	<div class="col-md-12">
-        		<textarea class="form-control" rows="10" id="schema"></textarea>
-        </div>
-        </div>
-        
-        
+        <br />
         <script type="text/javascript">
             $(document).ready(function() {
             	var alpacadata = {};
